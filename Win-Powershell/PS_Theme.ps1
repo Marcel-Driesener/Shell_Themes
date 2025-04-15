@@ -21,8 +21,11 @@ if (!(Test-Path $profilePath)) {
     New-Item -Path $profilePath -Type File -Force
 }
 
-# Optional: Set a theme (replace 'themePath' with your preferred theme)
+# [Console]::OutputEncoding = [Text.Encoding]::UTF8 - this is only for PowerShell 7 - change encoding to use UTF8
+# Remove-Item Alias:curl - PS auto aliases curl to invoke-Webrequest
+
+# Optional: Replace 'themePath' with your preferred theme - either a Path(C:\User\..) or an URL
 $themePath = "https://raw.githubusercontent.com/Marcel-Driesener/Shell_Themes/refs/heads/main/Win-Powershell/oh-my-posh-theme/darkblood-custom.omp.json"
-Add-Content -Path $profilePath -Value "oh-my-posh upgrade | oh-my-posh init pwsh --config '$themePath' | Invoke-Expression"
+Add-Content -Path $profilePath -Value "[Console]::OutputEncoding = [Text.Encoding]::UTF8 `nRemove-Item Alias:curl | oh-my-posh upgrade | oh-my-posh init pwsh --config '$themePath' | Invoke-Expression"
 
 Write-Host "PowerShell profile updated. Restart PowerShell to apply changes."
