@@ -11,4 +11,3 @@
    git clone https://github.com/TryingToLearnNewThings/Shell-Themes.git
 
 2. **Follow the Steps for each Shell**
-   ```
